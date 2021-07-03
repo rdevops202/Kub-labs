@@ -1,0 +1,16 @@
+apiversion: v1
+kind: Pod
+metadate:
+  name: configmap-demo-pod
+spec:
+  containers:
+  - name: demo
+    image: alpine
+    command: ["sleep", "3600"]
+    env: 
+    - name: player_initial lives
+      valueFrom: 
+        configMapRef:
+          name: game-demo
+          key: player_initial_lives
+         
